@@ -1,0 +1,74 @@
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    scroll-padding-top: 4rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+    --main-color:#bc9667;
+    --second-color:#edeae3;
+    --text-color:#1b1b1b;
+    --bg-color:white;
+
+    --box-shadow:2px 2px 10px 4px rgb(14 55 54 / 15%);
+}
+
+body{
+    height: 100vh;
+    background-image: url(../imgAsset/bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container-login, .container-register {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px 30px;
+    width: 350px;
+
+    background-color: #bc9667;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+.container-login h1, .container-register h1 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--text-color);
+}
+
+.container-login label, .container-register label {
+    text-align: left;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.container-login form input, .container-register form input {
+    width: calc(100% - 20px);
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid var(--text-color);
+    color: var(--text-color);   
+    font-size: .9rem;
+}
+
+.container-login form button, .container-register form button {
+    width: 100%;
+    padding: 5px 0;
+    margin-top: 2rem;
+    border: none;
+    background-color: var(--text-color);
+    font-size: 18px;
+    color: #fafafa;
+}

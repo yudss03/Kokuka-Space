@@ -1,0 +1,232 @@
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    scroll-padding-top: 4rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+    --main-color:#bc9667;
+    --second-color:#edeae3;
+    --text-color:#1b1b1b;
+    --bg-color:white;
+
+    --box-shadow:2px 2px 10px 4px rgb(14 55 54 / 15%);
+}
+
+body {
+    display: flex;
+    background-color: var(--second-color);
+    overflow-x: hidden;
+}
+
+.page {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+/* SIDEBAR START */
+#sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 18rem;
+    background-color: var(--main-color);
+    padding: 2rem;
+    border-radius: 0 10px 10px 0;
+}
+
+#sidebar .title {
+    font-size: 2rem;
+}
+
+#sidebar ul {
+    margin-top: 3rem;
+}
+
+#sidebar ul > li > a {
+    display: flex;
+    height: 2.3rem;
+    width: 10rem;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+#sidebar ul > li > a:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: .2rem;
+    border-radius: 10px;
+    padding-left: 1rem;
+} 
+/* SIDEBAR END */
+
+/* PAGES START */
+
+.main-container {
+    display: flex;
+    margin-left: 18rem;
+}
+
+/* PRODUCT PAGES START */
+#products {
+    padding: 2rem;
+}
+
+#products .product-add {
+    width: 4rem;
+    display: flex;
+    background-color: var(--text-color);
+    color: var(--second-color);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: .6rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#products .product-add:hover {
+    background-color: var(--second-color);
+    color: var(--text-color);
+}
+
+#products .products-wrapper {
+    height: 25rem;
+    width: 50rem;
+    background-color: var(--main-color);
+    padding: 1rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    border-radius: 10px;
+}
+
+#products table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#products table td, #products table th {
+    border: 1px solid var(--text-color);
+    padding: 8px;
+}
+
+#products table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: var(--second-color);
+    color: var(--text-color);
+}
+
+#products table td tr:nth-child(5) {
+    max-width: 10px;
+}
+
+#products img {
+    height: 3rem;
+    margin-left: 1.2rem;
+}
+/* PRODUCT PAGES END */
+
+
+/* USER PAGES START */
+#users {
+    padding: 2rem;
+}
+
+#users .user-add {
+    width: 4rem;
+    display: flex;
+    background-color: var(--text-color);
+    color: var(--second-color);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: .6rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#users .user-add:hover {
+    background-color: var(--second-color);
+    color: var(--text-color);
+}
+
+#users .users-wrapper {
+    height: 25rem;
+    width: 50rem;
+    background-color: var(--main-color);
+    padding: 1rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    border-radius: 10px;
+}
+
+#users table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#users table td, #users table th {
+    border: 1px solid var(--text-color);
+    padding: 8px;
+}
+
+#users table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: var(--second-color);
+    color: var(--text-color);
+}
+
+#users table td tr:nth-child(5) {
+    max-width: 10px;
+}
+/* USER PAGES END */
+
+#form-product {
+    padding: 2rem;
+}
+
+#form-product form {
+    position: relative;
+    width: 50rem;
+    height: 498px;
+    margin: 0 auto;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: var(--main-color);
+    margin-top: 2rem;
+
+    /* we create our grid */
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 5em 2em 2em 2em;
+}
+
+#form-product form button {
+    width: 10rem;
+    height: 3rem;
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+#form-product form button:hover {
+    background-color: var(--main-color);
+    border: 1px solid var(--bg-color);
+}
+/* PAGES END */

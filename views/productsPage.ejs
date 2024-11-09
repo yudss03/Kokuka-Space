@@ -1,0 +1,42 @@
+<section class="product-container">
+    <div class="search-box">
+        <form action="">
+            <input type="search" name="" id="" placeholder="Cari Menu..." />
+        </form>
+    </div>
+</div>
+
+<h1 class="title-container">Coffe</h1>
+<div class="content-container">
+    <div class="menu-container">
+        <% products.forEach((product) => { %>
+            <div class="box" id="<%= product.productName %>" data-id="<%= product.idProduct %>">
+                <img class="productImg" data-img="<%= product.productImg %>" src="imgCoffe/<%= product.productImg %>" alt="Gambar <%= product.productName %>">
+                <h3 class="product-name"><%= product.productName %></h3>
+    
+                <div class="content" data-id="<%= product.idProduct %>" data-name="<%= product.productName %>" data-price="<%= product.productPrice %>" data-img="<%= product.productImg %>">
+                    <button class="btn-add-toCart">Beli</button>
+                    <span class="product-price"><%= product.productPrice %></span>
+                </div>
+                </div>
+        <% }) %>
+    </div>
+
+    <div class="transaction-section">
+        <div class="shopping-cart">
+        </div>
+
+        <div class="summary-cart">
+            <div id="total-price">
+                <span>Total : </span>
+                <span id="total"></span>
+            </div>
+            <a href="" id="btnPesan">Pesan</a>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+

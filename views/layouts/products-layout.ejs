@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ICON FOR WEBSITE -->
+    <link rel="website icon" type="png" href="kokuka1.0.png" />
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Shippori+Mincho+B1:wght@500&display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style/style.css" />
+    <link rel="stylesheet" href="/style/style-products.css" />
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script type="text/javascript"
+            src="https://app.sandbox.midtrans.com/snap/snap.js"
+            data-client-key="SB-Mid-client-tH7ASojr_PVWbo50"></script>
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include('navbar-products') %>
+
+    <%- body %>
+
+    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/scriptProducts.js"></script>
+    <script type="text/javascript">
+        const payButton = document.getElementById('btnPesan')
+
+        function getCookie(cookieName) {
+            let cookies = document.cookie;
+            let cookieArray = cookies.split("; ");
+
+            for (let i = 0; i < cookieArray.length; i++) {
+                let cookie = cookieArray[i];
+                let [name, value] = cookie.split("=");
+
+                if (name === cookieName) {
+                    return decodeURIComponent(value);
+                }
+            }
+            
+            return null;
+        }
+
+        payButton.addEventListener('click', function (btn) {
+            btn.preventDefault()
+            const gross_amount = document.getElementById('total').innerText
+            let username = getCookie("user")
+            let email = getCookie("email")
+
+            fetch('http://localhost:3000/transaction', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }, 
+                body: JSON.stringify({
+                    gross_amount,
+                    username,
+                    email
+                })
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                const transactionToken = data.transactionToken
+
+                snap.pay(transactionToken)
+            })
+        })
+    </script>
+</body>
+</html>

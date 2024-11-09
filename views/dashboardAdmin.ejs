@@ -1,0 +1,81 @@
+<section class="main-container">
+    <div id="products" class="page active">
+        <h2>Products</h2>
+        <a class="product-add" onclick="loadContent('form-product', event)">Add+</a>
+        <div class="products-wrapper">
+            <table border="1">
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Option</th>
+                </tr> 
+                <% products.forEach(product => { %>
+                    <tr>
+                        <td><%= 1 %></td>
+                        <td><%= product.productName %></td>
+                        <td>Rp. <%= product.productPrice %></td>
+                        <td><img src="imgCoffe/<%= product.productImg %>" alt=""></td>
+                        <td><%= product.productDesc %></td>
+                        <td><%= product.productCategory %></td>
+                        <td>
+                            <a href="/admin/product/<%= product.idProduct %>">Edit</a>
+                            <a href="/admin/product/delete/<%= product.idProduct %>">Hapus</a>
+                        </td>
+                    </tr>
+                        <% }) %>
+            </table>
+        </div>
+    </div>
+
+    <div id="users" class="page">
+        <h2>Users</h2>
+        <a class="user-add">Add+</a>
+        <div class="users-wrapper">
+            <table border="1">
+                <tr>
+                    <th>User ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Option</th>
+                </tr> 
+                <% users.forEach(user => { %>
+                    <tr>
+                        <td><%= user.idUser %></td>
+                        <td><%= user.username %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.createdAt %></td>
+                        <td><%= user.updatedAt %></td>
+                        <td>
+                            <a href="/admin/user/<%= user.idUser %>">Edit</a>
+                            <a href="/admin/user/delete/<%= user.idUser %>">Hapus</a>
+                        </td>
+                    </tr>
+                        <% }) %>
+            </table>
+        </div>
+    </div>
+
+    <div id="form-product" class="page">
+        <h1>Add Product Form</h1>
+        <form action="/admin/product" method="post">
+                <label for="productName">Product Name</label>
+                <input type="text" name="productName">
+                <label for="productPrice">Product Price</label>
+                <input type="number" name="productPrice">
+                <label for="productImg">Product image</label>
+                <input type="text" name="productImg">
+                <label for="productDesc">Product Description</label>
+                <input type="text" name="productDesc">
+                <label for="productCategory">Product Category</label>
+                <input type="text" name="productCategory">
+
+            <button class="btnTambah" type="submit">Tambah</button>
+        </form>
+    </div>
+</section>
