@@ -200,7 +200,6 @@ router.post('/transaction', async (req, res) => {
 
             return res.json({ transactionToken })
         })
-
 })
 
 module.exports = router
